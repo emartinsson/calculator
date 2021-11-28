@@ -163,16 +163,13 @@ function divide(numberOne, numberTwo){
 //Helpfunction for round. Change allowed number of decimals to allow more.
 function round(sum){
     let slider = document.getElementById("gridSizeSlider");
-    const allowedNumberOfDecimals = parseInt(slider.value);
+    const numberOfDecimals = parseInt(slider.value);
     if (!sum.toString().includes(".")){
         return sum;
     }
-    const tempArray = sum.toString().split(".");
-    const numOfDecimals = tempArray[1].length;
-    console.log(numOfDecimals)
-    if (numOfDecimals>allowedNumberOfDecimals){
-        sum = (Math.round(sum*10)/10).toFixed(allowedNumberOfDecimals);
-    }
+    console.log(typeof sum);
+    sum = +sum.toFixed(numberOfDecimals);
+
     return sum;
 }
 
